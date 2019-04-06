@@ -53,6 +53,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 --> AJAX ??? TK video says its 'not a tool but a concept'
 
+
 --> Promises
 --> HTTP = set of rules about how to interact with web servers over the internet
   --> methods = part of ^ that are used to tell server what kind of actions to perform
