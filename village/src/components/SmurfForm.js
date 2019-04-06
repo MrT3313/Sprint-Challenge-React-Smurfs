@@ -10,9 +10,13 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = e => {
+  addSmurf = async e => {
     e.preventDefault();
     // add code to create the smurf using the api
+
+    await this.setState( prevState => {
+      return {height: prevState.height + 'cm'}
+    })
 
     this.props.addSmurf(
       e,
@@ -25,7 +29,7 @@ class SmurfForm extends Component {
   }
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+      this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {

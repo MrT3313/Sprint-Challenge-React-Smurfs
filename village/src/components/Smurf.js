@@ -1,5 +1,5 @@
 // DEPENDENCIES
-  import React from 'react';
+  import React, { Component } from 'react';
 
 //STYLED COMPONENTS
   import styled from 'styled-components'
@@ -29,17 +29,32 @@ const RemoveSmurf_icon = styled.div`\
   }
 `;
 
-const Smurf = props => {
-  return (
-    <SmurfCard className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-      <RemoveSmurf_icon>
-        <i class="far fa-trash-alt"></i>
-      </RemoveSmurf_icon>
-    </SmurfCard>
-  );
+export default class Smurf extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  handler_TrashIconClick = e => {
+    this.props.deleteSmurf(
+      e,
+      this.props.id
+    )
+  }
+  
+  render() {
+    return (
+      <SmurfCard className="Smurf">
+        <h3>{this.props.name}</h3>
+        <strong>{this.props.height} tall</strong>
+        <p>{this.props.age} smurf years old</p>
+        <RemoveSmurf_icon
+          onClick={this.handler_TrashIconClick}
+        >
+          <i class="far fa-trash-alt"></i>
+        </RemoveSmurf_icon>
+      </SmurfCard>
+    );
+  }
 };
 
 Smurf.defaultProps = {
@@ -48,5 +63,4 @@ Smurf.defaultProps = {
   age: ''
 };
 
-export default Smurf;
 
