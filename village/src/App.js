@@ -57,18 +57,19 @@ class App extends Component {
 
   // DELETE
   deleteSmurf = async (e, id) => {
+  // deleteSmurf = (e, id) => {
     e.preventDefault()
     console.log(e)
     
     console.log(id)
     await this.setState({
-      updateId: id
+      deleteId: id
     })
-    console.log(this.state.id)
+    console.log(this.state.deleteId)
 
     axios
-      // .delete(`http://localhost:3333/smurfs/${this.state.updateId}`)
-      .delete(`http://localhost:3333/smurfs/${id}`)
+      .delete(`http://localhost:3333/smurfs/${this.state.deleteId}`)
+      // .delete(`http://localhost:3333/smurfs/${id}`)
       .then( res => {
         console.log(res)
         this.setState( {
