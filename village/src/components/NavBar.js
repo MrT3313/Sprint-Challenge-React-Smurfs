@@ -1,5 +1,6 @@
 // Dependencies
     import React, { Component } from 'react';
+    import { NavLink } from 'react-router-dom';
 
 // Styled Components
     import styled from 'styled-components'
@@ -16,20 +17,14 @@ export default class NavBar extends Component {
         super(props)
 
     }
-    
-    handler_NavClick(path) {
-        console.log(`Clicked -- goto ${path}`)
-    }
 
     render() {
         return (
             <Styles_nav>
-                <button
-                    onClick={ () => this.handler_NavClick('/') }
-                >Link 1</button>
-                <button
-                    onClick={ () => this.handler_NavClick('/smurf-form') }
-                >Link 2</button>
+                <NavLink to='/'>Home
+                </NavLink>
+                <NavLink to='/smurf-form'>Form
+                </NavLink>
             </Styles_nav>
         );
     }
