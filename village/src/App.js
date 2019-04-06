@@ -1,10 +1,15 @@
+//DEPENDENCIES
 import React, { Component } from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import axios from 'axios'
 
-import './App.css';
+//COMPONENTS 
+import NavBar from './components/NavBar'
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+
+//CSS
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -52,6 +57,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar />
         <SmurfForm addSmurf={this.addSmurf}/>
         <Smurfs smurfs={this.state.smurfs} />
       </div>
