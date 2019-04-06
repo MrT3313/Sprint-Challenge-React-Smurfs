@@ -7,9 +7,20 @@
 
 const Styles_nav = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
 
-    background: pink;
+    .navLink {
+        text-decoration: none;
+        color: black;
+
+        padding: 5px 10px;
+
+        border: 1px dashed black;
+    }
+
+    background: #88CCFF;
 `;
 
 export default class NavBar extends Component {
@@ -21,9 +32,13 @@ export default class NavBar extends Component {
     render() {
         return (
             <Styles_nav>
-                <NavLink to='/'>Home
+                <NavLink 
+                    to='/' 
+                    className='navLink'>View Smurfs
                 </NavLink>
-                <NavLink to='/smurf-form'>Form
+                <NavLink 
+                    to='/smurf-form' 
+                    className='navLink'>Add Smurf
                 </NavLink>
             </Styles_nav>
         );

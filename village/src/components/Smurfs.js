@@ -1,6 +1,11 @@
-import React, { Component } from 'react';
+//DEPENDENCIES
+  import React, { Component } from 'react';
 
-import Smurf from './Smurf';
+//COMPONENTS
+  import Smurf from './Smurf';
+
+// CSS
+  import '../App.css'
 
 class Smurfs extends Component {
   render() {

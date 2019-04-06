@@ -64,9 +64,6 @@ class App extends Component {
         <Route exact path='/smurf-form'
           render={() => <SmurfForm addSmurf={this.addSmurf}/> }
         />
-
-        
-        
       </div>
     );
   }
