@@ -16,7 +16,7 @@ class App extends Component {
     super(props);
     this.state = {
       smurfs: [],
-      deleteId: undefined
+      // deleteId: undefined
     };
   }
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
@@ -47,7 +47,8 @@ class App extends Component {
       .then( res => {
         console.log( res )
         this.setState( {
-          smurfs: [...this.state.smurfs, newSmurf]
+          // smurfs: [...this.state.smurfs, newSmurf]
+          smurfs: res.data
         })
       })
       .catch( () => {
@@ -56,19 +57,26 @@ class App extends Component {
   }
 
   // DELETE
-  deleteSmurf = async (e, id) => {
+  deleteSmurf = (e, id) => {
   // deleteSmurf = (e, id) => {
     e.preventDefault()
-    console.log(e)
+    // console.log(e)
     
-    console.log(id)
-    await this.setState({
-      deleteId: id
-    })
-    console.log(this.state.deleteId)
+    // console.log('checking ID from <App />')
+    // console.log(id)
+
+    // console.log('current State of DELETED ID')
+    // console.log(this.state.deleteId)
+
+    // console.log('set the state of deleteID to passed ID')
+    // this.setState({
+    //   deleteId: id
+    // })
+    // console.log('current State of DELETED ID')
+    // console.log(this.state.deleteId)
 
     axios
-      .delete(`http://localhost:3333/smurfs/${this.state.deleteId}`)
+      .delete(`http://localhost:3333/smurfs/${id}`)
       // .delete(`http://localhost:3333/smurfs/${id}`)
       .then( res => {
         console.log(res)
@@ -92,7 +100,7 @@ class App extends Component {
           /> }
         />
         <Route exact path='/smurf-form'
-          render={() => <SmurfForm addSmurf={this.addSmurf}/> }
+          render={() => <SmurfForm addSmurf={this.addSmurf} smurfs={this.state.smurfs}/> }
         />
       </div>
     );

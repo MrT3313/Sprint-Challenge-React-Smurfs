@@ -10,20 +10,24 @@ class SmurfForm extends Component {
     };
   }
 
-  addSmurf = async e => {
+  idCounter = () => {
+    let id = 0;
+    return function() {
+      return id++;
+    };
+  };
+
+  addSmurf = e => {
     e.preventDefault();
     // add code to create the smurf using the api
-
-    await this.setState( prevState => {
-      return {height: prevState.height + 'cm'}
-    })
 
     this.props.addSmurf(
       e,
       {
         age: this.state.age,
-        height: this.state.height,
-        name: this.state.name
+        height: `${this.state.height + 'cm'}`,
+        name: this.state.name,
+        id: this.idCounter()()
       }
     )
   }

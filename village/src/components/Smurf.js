@@ -35,6 +35,10 @@ export default class Smurf extends Component {
   }
 
   handler_TrashIconClick = e => {
+    
+    console.log('checking ID from <Smurf /> click handler')
+    console.log(this.props.id)
+    
     this.props.deleteSmurf(
       e,
       this.props.id
